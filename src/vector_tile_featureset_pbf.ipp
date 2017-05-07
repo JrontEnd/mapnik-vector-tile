@@ -144,9 +144,9 @@ feature_ptr tile_featureset_pbf<Filter>::next()
                                 throw std::runtime_error("Vector Tile has a feature with an odd number of tags, therefore the tile is invalid.");
                             }
                             std::size_t key_value = *(_i++);
-                            if (key_name < num_keys_
-                                && key_value < num_values_)
-                            {
+//                             if (key_name < num_keys_
+//                                 && key_value < num_values_)
+//                             {
                                 std::string const& name = layer_keys_.at(key_name);
                                 if (feature->has_key(name))
                                 {
@@ -154,11 +154,11 @@ feature_ptr tile_featureset_pbf<Filter>::next()
                                     value_visitor vv(tr_, feature, name);
                                     mapnik::util::apply_visitor(vv, val);
                                 }
-                            }
-                            else if (version_ == 2)
-                            {
-                                throw std::runtime_error("Vector Tile has a feature with repeated attributes with an invalid key or value as it does not appear in the layer. This is invalid according to the Mapbox Vector Tile Specification Version 2");
-                            }
+//                             }
+//                             else if (version_ == 2)
+//                             {
+//                                 throw std::runtime_error("Vector Tile has a feature with repeated attributes with an invalid key or value as it does not appear in the layer. This is invalid according to the Mapbox Vector Tile Specification Version 2");
+//                             }
                         }
                     }
                     break;
